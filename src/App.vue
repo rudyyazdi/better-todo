@@ -1,17 +1,17 @@
 <template>
-  <Main />
+  <Main msg="hello"/>
 </template>
 
 <script lang="ts">
-import { Options, Vue } from 'vue-class-component'
+import { defineComponent } from 'vue'
 import Main from './components/Main.vue'
 
-@Options({
+export default defineComponent({
+  name: 'App',
   components: {
     Main
   }
 })
-export default class App extends Vue {}
 </script>
 
 <style>

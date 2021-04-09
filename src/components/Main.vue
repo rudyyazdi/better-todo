@@ -1,18 +1,16 @@
 <template>
-  <h1>Better Todo app</h1>
+  <h1>Better Todo App {{msg}}</h1>
 </template>
 
 <script lang="ts">
-import { Options, Vue } from 'vue-class-component'
+import { defineComponent } from 'vue'
 
-@Options({
+export default defineComponent({
+  name: 'Main',
   props: {
     msg: String
   }
 })
-export default class Main extends Vue {
-  msg!: string
-}
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
