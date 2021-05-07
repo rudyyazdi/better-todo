@@ -8,6 +8,7 @@
     <div v-for="item in todoItems()" v-bind:key="item.id" style="display:flex">
       <input type="checkbox" v-bind:checked="false" v-on:click="toggleDone(item.id)">
       <li > {{item.name}}</li>
+      <button v-on:click="removeTodoItem(item.id)">X</button>
     </div>
   </ul>
 
@@ -16,13 +17,14 @@
     <div v-for="item in doneItems()" v-bind:key="item.id" style="display:flex">
       <input type="checkbox" v-bind:checked="true" v-on:click="toggleDone(item.id)">
       <li > {{item.name}}</li>
+      <button v-on:click="removeTodoItem(item.id)">X</button>
     </div>
   </ul>
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue'
-import { store, ITodoItem, addTodoItem, toggleDone } from '../store'
+import { store, ITodoItem, addTodoItem, toggleDone, removeTodoItem } from '../store'
 import { v4 as uuidv4 } from 'uuid'
 
 export default defineComponent({
@@ -45,7 +47,8 @@ export default defineComponent({
       addTodoItem(todoItem)
       this.todoItemName = ''
     },
-    toggleDone: toggleDone
+    toggleDone: toggleDone,
+    removeTodoItem: removeTodoItem
   },
   data: function () {
     return {
