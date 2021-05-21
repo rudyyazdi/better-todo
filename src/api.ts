@@ -1,4 +1,4 @@
-import { IState } from './store'
+import { IState } from './types'
 
 const headers = {
   'X-Master-Key': '$2b$10$X9W.su7FvQhpv207K5MBkuzilHT9snkzbnKJXeUbGaNuTAyf7LFgW',

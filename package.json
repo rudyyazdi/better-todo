@@ -5,10 +5,12 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint"
+    "lint": "vue-cli-service lint",
+    "typescript-json-schema": "typescript-json-schema \"src/types.ts\" 'IState'  --out schema.json  --required --strictNullChecks"
   },
   "dependencies": {
     "@types/uuid": "^8.3.0",
+    "typescript-json-schema": "^0.50.0",
     "uuid": "^8.3.2",
     "vue": "^3.0.0",
     "vue-class-component": "^8.0.0-0"

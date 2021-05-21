@@ -24,7 +24,8 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue'
-import { store, ITodoItem, addTodoItem, toggleDone, removeTodoItem, load } from '../store'
+import { store, addTodoItem, toggleDone, removeTodoItem, load } from '../store'
+import { ITodoItem } from '../types'
 import { v4 as uuidv4 } from 'uuid'
 
 export default defineComponent({

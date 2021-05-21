@@ -1,18 +1,7 @@
 import { reactive } from 'vue'
 import { v4 as uuidv4 } from 'uuid'
 import { getTodos, updateTodos } from './api'
-
-export type UUID = string
-
-export type ITodoItem = {
-  id: UUID;
-  name: string;
-  isDone: boolean;
-}
-
-export type IState = {
-  todoItems: ITodoItem[]
-}
+import { UUID, IState, ITodoItem } from './types'
 
 export const initialState:IState = {
   todoItems: []
