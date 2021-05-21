@@ -24,7 +24,7 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue'
-import { store, ITodoItem, addTodoItem, toggleDone, removeTodoItem } from '../store'
+import { store, ITodoItem, addTodoItem, toggleDone, removeTodoItem, load } from '../store'
 import { v4 as uuidv4 } from 'uuid'
 
 export default defineComponent({
@@ -54,6 +54,9 @@ export default defineComponent({
     return {
       todoItemName: ''
     }
+  },
+  mounted () {
+    load()
   }
 })
 </script>

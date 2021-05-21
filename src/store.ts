@@ -1,5 +1,6 @@
 import { reactive } from 'vue'
 import { v4 as uuidv4 } from 'uuid'
+import { getTodos, updateTodos } from './api'
 
 export type UUID = string
 
@@ -9,7 +10,7 @@ export type ITodoItem = {
   isDone: boolean;
 }
 
-type IState = {
+export type IState = {
   todoItems: ITodoItem[]
 }
 
@@ -21,6 +22,7 @@ export const store = reactive(initialState)
 
 export function addTodoItem (todoItem: ITodoItem): void {
   store.todoItems = [todoItem].concat(store.todoItems)
+  save()
 }
 
 export function toggleDone (id: UUID): void {
@@ -31,8 +33,19 @@ export function toggleDone (id: UUID): void {
     return item
   })
   store.todoItems = newTodoItems
+  save()
 }
 
 export function removeTodoItem (id: UUID): void {
   store.todoItems = store.todoItems.filter(item => !(item.id === id))
+  save()
+}
+
+export async function load (): Promise<void> {
+  const { todoItems } = await getTodos()
+  if (todoItems) store.todoItems = todoItems
+}
+
+export async function save (): Promise<void> {
+  updateTodos(store)
 }
